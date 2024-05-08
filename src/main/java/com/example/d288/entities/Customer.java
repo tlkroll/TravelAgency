@@ -17,11 +17,11 @@ import java.util.Set;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     @JsonProperty("id")
     private Long id;
 
-    @Column(name = "address")
+    @Column(name = "address", nullable = false)
     @JsonProperty("address")
     private String address;
 
@@ -30,11 +30,11 @@ public class Customer {
     @JsonProperty("createDate")
     private Date createDate;
 
-    @Column(name = "customer_first_name")
+    @Column(name = "customer_first_name", nullable = false)
     @JsonProperty("firstName")
     private String firstName;
 
-    @Column(name = "customer_last_name")
+    @Column(name = "customer_last_name", nullable = false)
     @JsonProperty("lastName")
     private String lastName;
 
@@ -43,15 +43,15 @@ public class Customer {
     @JsonProperty("lastUpdate")
     private Date lastUpdate;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     @JsonProperty("phone")
     private String phone;
 
-    @Column(name = "postal_code")
+    @Column(name = "postal_code", nullable = false)
     @JsonProperty("postal_code")
     private String postal_code;
 
-    @Column(name = "division_id")
+    @Column(name = "division_id", nullable = false)
     @JsonProperty("division_id")
     private Long division_id;
 
