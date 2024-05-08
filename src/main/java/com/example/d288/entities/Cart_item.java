@@ -1,4 +1,5 @@
 package com.example.d288.entities;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,22 +16,26 @@ import java.util.Set;
 public class Cart_item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "cart_item_id")
+    @JsonProperty("cartItemId")
     private Long cartItemId;
 
     @Column(name = "create_date")
     @CreationTimestamp
+    @JsonProperty("createDate")
     private Date createDate;
 
     @Column(name = "last_update")
     @UpdateTimestamp
+    @JsonProperty("lastUpdate")
     private Date lastUpdate;
 
     @Column(name = "cart_id")
+    @JsonProperty("cartId")
     private Long cartId;
 
     @Column(name = "vacation_id")
+    @JsonProperty("vacation")
     private Long vacation;
 
     @ManyToOne(fetch = FetchType.LAZY)
