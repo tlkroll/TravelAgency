@@ -1,14 +1,15 @@
 package com.example.d288.service;
 
+import com.example.d288.dao.CartRepository;
 import com.example.d288.dao.CustomerRepository;
 import com.example.d288.dto.Purchase;
 import com.example.d288.dto.PurchaseResponse;
 import com.example.d288.entities.Cart;
-import com.example.d288.entities.Cart_item;
+import com.example.d288.entities.CartItem;
 import com.example.d288.entities.Customer;
+import com.example.d288.entities.StatusType;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-
 import java.util.Set;
 import java.util.UUID;
 
@@ -16,9 +17,11 @@ import java.util.UUID;
 public class CheckoutServiceImpl implements CheckoutService{
 
     private CustomerRepository customerRepository;
+    private CartRepository cartRepository;
 
-    public CheckoutServiceImpl (CustomerRepository customerRepository) {
+    public CheckoutServiceImpl (CustomerRepository customerRepository, CartRepository cartRepository) {
         this.customerRepository = customerRepository;
+        this.cartRepository = cartRepository;
     }
 
     @Override
@@ -26,21 +29,23 @@ public class CheckoutServiceImpl implements CheckoutService{
     public PurchaseResponse placeOrder(Purchase purchase) {
 
         Cart cart = purchase.getCart();
-        String orderTrackingNumber = generateOrderTrackingNumber();
-        cart.setOrderTrackingNumber(orderTrackingNumber);
-
-        Set<Cart_item> cart_itemSet = purchase.getCart_itemSet();
-        cart_itemSet.forEach(cart_item -> cart.add(cart_item));
-
-        cart.setCartItems(purchase.getCart_itemSet());
-        cart.setCustomer(purchase.getCustomer());
-
         Customer customer = purchase.getCustomer();
-        customer.add(cart);
+        String orderTrackingNumber = generateOrderTrackingNumber();
 
+        Set<CartItem> cartItems = purchase.getCartItems();
+        cartItems.forEach(cartItem -> cart.add(cartItem));
+
+        cart.setOrderTrackingNumber(orderTrackingNumber);
+        //cart.setCartItems(purchase.getCart_itemSet());
+        cart.setCustomer(purchase.getCustomer());
+        cart.setStatus(StatusType.ordered);
+
+        cartRepository.save(cart);
+        customer.add(cart);
         customerRepository.save(customer);
 
-        return new PurchaseResponse();
+
+        return new PurchaseResponse(orderTrackingNumber);
     }
 
     private String generateOrderTrackingNumber() {

@@ -21,29 +21,29 @@ public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "excursion_id")
-    @JsonProperty("id")
+    //@JsonProperty("id")
     private Long id;
 
     @Column(name = "create_date")
     @CreationTimestamp
-    @JsonProperty("create_date")
+    //@JsonProperty("create_date")
     private Date create_date;
 
     @Column(name = "excursion_price")
-    @JsonProperty("excursion_price")
+    //@JsonProperty("excursion_price")
     private BigDecimal excursion_price;
 
     @Column(name = "excursion_title")
-    @JsonProperty("excursion_title")
+    //@JsonProperty("excursion_title")
     private String excursion_title;
 
     @Column(name = "image_url")
-    @JsonProperty("image_URL")
+    //@JsonProperty("image_URL")
     private String image_URL;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    @JsonProperty("last_update")
+    //@JsonProperty("last_update")
     private Date last_update;
 
     @Column(name = "vacation_id")
@@ -55,5 +55,5 @@ public class Excursion {
     private Vacation vacations;
 
     @ManyToMany(mappedBy = "excursions")
-    private Set<Cart_item> cartItems;
+    private Set<CartItem> cartItems;
 }

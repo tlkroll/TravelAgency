@@ -13,11 +13,11 @@ import java.util.Set;
 @Table(name="cart_items")
 @Getter
 @Setter
-public class Cart_item {
+public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_item_id")
-    @JsonProperty("cartItemId")
+    //@JsonProperty("cartItemId")
     private Long cartItemId;
 
     @Column(name = "create_date")
@@ -27,7 +27,7 @@ public class Cart_item {
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    @JsonProperty("lastUpdate")
+    //@JsonProperty("lastUpdate")
     private Date lastUpdate;
 
     @Column(name = "cart_id")
@@ -35,7 +35,7 @@ public class Cart_item {
     private Long cartId;
 
     @Column(name = "vacation_id")
-    @JsonProperty("vacation")
+    //@JsonProperty("vacation")
     private Long vacation;
 
     @ManyToOne(fetch = FetchType.LAZY)

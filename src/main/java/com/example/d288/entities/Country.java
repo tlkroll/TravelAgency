@@ -17,21 +17,21 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
-    @JsonProperty("id")
+    //@JsonProperty("id")
     private Long id;
 
     @Column(name = "country")
-    @JsonProperty("country_name")
+    //@JsonProperty("country_name")
     private String country_name;
 
     @Column(name = "create_date")
     @CreationTimestamp
-    @JsonProperty("createDate")
+    //@JsonProperty("createDate")
     private Date createDate;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    @JsonProperty("lastUpdate")
+    //@JsonProperty("lastUpdate")
     private Date lastUpdate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country_id")

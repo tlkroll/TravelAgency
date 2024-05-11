@@ -16,25 +16,25 @@ public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "division_id")
-    @JsonProperty("id")
+    //@JsonProperty("id")
     private Long id;
 
     @Column(name = "division")
-    @JsonProperty("division_name")
+    //@JsonProperty("division_name")
     private String division_name;
 
     @Column(name = "create_date")
     @CreationTimestamp
-    @JsonProperty("createDate")
+    //@JsonProperty("createDate")
     private Date createDate;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    @JsonProperty("lastUpdate")
+    //@JsonProperty("lastUpdate")
     private Date lastUpdate;
 
     @Column(name = "country_id")
-    @JsonProperty("country_id")
+    //@JsonProperty("country_id")
     private Long country_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
