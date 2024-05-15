@@ -16,50 +16,38 @@ import java.util.Set;
 @Getter
 @Setter
 public class Cart {
-    //public enum orderStatus { pending, ordered, canceled }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
-    @JsonProperty("id")
     private Long id;
 
     @Column(name = "package_price")
-    @JsonProperty("package_price")
     private BigDecimal package_price;
 
     @Column(name = "party_size")
-    @JsonProperty("party_size")
     private Integer party_size;
 
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
-    @JsonProperty("status")
     private StatusType status;
 
     @Column(name = "order_tracking_number")
-    @JsonProperty("orderTrackingNumber")
     private String orderTrackingNumber;
 
     @Column(name = "create_date")
     @CreationTimestamp
-    @JsonProperty("createDate")
     private Date createDate;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    @JsonProperty("lastUpdate")
     private Date lastUpdate;
 
-    @Column(name = "customer_id")
-    @JsonProperty("customerId")
-    private Long customerId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carts")
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private Set<CartItem> cartItems = new HashSet<>();
 
     public void add(CartItem item) {
@@ -70,7 +58,7 @@ public class Cart {
             }
 
             cartItems.add(item);
-            item.setCarts(this);
+            item.setCart(this);
         }
     }
 }

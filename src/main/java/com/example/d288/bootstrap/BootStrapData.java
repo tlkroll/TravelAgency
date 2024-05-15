@@ -1,6 +1,7 @@
 package com.example.d288.bootstrap;
 
 import com.example.d288.dao.CustomerRepository;
+import com.example.d288.dao.DivisionRepository;
 import com.example.d288.entities.Customer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -9,9 +10,10 @@ import org.springframework.stereotype.Component;
 public class BootStrapData implements CommandLineRunner {
 
     private final CustomerRepository customerRepository;
-
-    public BootStrapData(CustomerRepository customerRepository) {
+    private final DivisionRepository divisionRepository;
+    public BootStrapData(CustomerRepository customerRepository, DivisionRepository divisionRepository) {
         this.customerRepository = customerRepository;
+        this.divisionRepository = divisionRepository;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class BootStrapData implements CommandLineRunner {
             tom.setLastName("Kroll");
             tom.setPhone("518-416-9535");
             tom.setAddress("149 Madeup Street");
-            tom.setDivision_id(31);
+            tom.setDivision(divisionRepository.findAll().get(5));
             tom.setPostal_code("12198");
             customerRepository.save(tom);
 
@@ -31,7 +33,7 @@ public class BootStrapData implements CommandLineRunner {
             kristine.setLastName("Kroll");
             kristine.setPhone("518-416-9536");
             kristine.setAddress("149 Madeup Street");
-            kristine.setDivision_id(31);
+            kristine.setDivision(divisionRepository.findAll().get(5));
             kristine.setPostal_code("12198");
             customerRepository.save(kristine);
 
@@ -40,7 +42,7 @@ public class BootStrapData implements CommandLineRunner {
             everett.setLastName("Kroll");
             everett.setPhone("518-416-3536");
             everett.setAddress("149 Madeup Street");
-            everett.setDivision_id(31);
+            everett.setDivision(divisionRepository.findAll().get(5));
             everett.setPostal_code("12198");
             customerRepository.save(everett);
 
@@ -49,7 +51,7 @@ public class BootStrapData implements CommandLineRunner {
             tzu.setLastName("Kroll");
             tzu.setPhone("Dog, no phone");
             tzu.setAddress("149 Madeup Street");
-            tzu.setDivision_id(31);
+            tzu.setDivision(divisionRepository.findAll().get(5));
             tzu.setPostal_code("12198");
             customerRepository.save(tzu);
 
@@ -58,7 +60,7 @@ public class BootStrapData implements CommandLineRunner {
             heidi.setLastName("Kroll");
             heidi.setPhone("Dog, no phone");
             heidi.setAddress("149 Madeup Street");
-            heidi.setDivision_id(31);
+            heidi.setDivision(divisionRepository.findAll().get(5));
             heidi.setPostal_code("12198");
             customerRepository.save(heidi);
         }

@@ -40,9 +40,6 @@ public class CheckoutServiceImpl implements CheckoutService{
         cart.setStatus(StatusType.ordered);
 
         cartRepository.save(cart);
-        customer.add(cart);
-        customerRepository.save(customer);
-
 
         return new PurchaseResponse(orderTrackingNumber);
     }

@@ -17,12 +17,10 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_item_id")
-    //@JsonProperty("cartItemId")
     private Long cartItemId;
 
     @Column(name = "create_date")
     @CreationTimestamp
-    //@JsonProperty("createDate")
     private Date createDate;
 
     @Column(name = "last_update")
@@ -30,21 +28,13 @@ public class CartItem {
     @JsonProperty("lastUpdate")
     private Date lastUpdate;
 
-    @Column(name = "cart_id")
-    //@JsonProperty("cartId")
-    private Long cartId;
+    @ManyToOne
+    @JoinColumn(name = "vacation_id", nullable = false)
+    private Vacation vacation;
 
-    @Column(name = "vacation_id")
-    //@JsonProperty("vacation")
-    private Long vacation; //this variable causes json errors
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vacation_id", nullable = false, insertable = false, updatable = false)
-    private Vacation vacationCartItem;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id", nullable = false, insertable = false, updatable = false)
-    private Cart carts;
+    @ManyToOne
+    @JoinColumn(name = "cart_id", nullable = false)
+    private Cart cart;
 
     @ManyToMany
     @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "cart_item_id"),
