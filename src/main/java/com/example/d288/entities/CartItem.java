@@ -22,21 +22,25 @@ public class CartItem {
 
     @Column(name = "create_date")
     @CreationTimestamp
-    @JsonProperty("createDate")
+    //@JsonProperty("createDate")
     private Date createDate;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    //@JsonProperty("lastUpdate")
+    @JsonProperty("lastUpdate")
     private Date lastUpdate;
 
     @Column(name = "cart_id")
-    @JsonProperty("cartId")
+    //@JsonProperty("cartId")
     private Long cartId;
 
     @Column(name = "vacation_id")
     //@JsonProperty("vacation")
-    private Long vacation;
+    private Long vacation; //this variable causes json errors
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vacation_id", nullable = false, insertable = false, updatable = false)
+    private Vacation vacationCartItem;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", nullable = false, insertable = false, updatable = false)

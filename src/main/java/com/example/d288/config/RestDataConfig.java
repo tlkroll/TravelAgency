@@ -1,6 +1,7 @@
 package com.example.d288.config;
 
 import com.example.d288.entities.*;
+import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -32,6 +33,8 @@ public class RestDataConfig implements RepositoryRestConfigurer {
      * @param config
      * @param cors
      */
+
+
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         config.exposeIdsFor(Country.class);

@@ -52,4 +52,7 @@ public class Vacation {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations")
     private Set<Excursion> excursions;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacationCartItem")
+    private Set<CartItem> cartItems;
 }

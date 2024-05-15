@@ -53,7 +53,7 @@ public class Customer {
 
     @Column(name = "division_id", nullable = false)
     //@JsonProperty("division_id")
-    private Long division_id;
+    private int division_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "division_id", nullable = false, insertable = false, updatable = false)

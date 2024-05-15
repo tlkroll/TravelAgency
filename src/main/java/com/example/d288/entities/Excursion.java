@@ -47,7 +47,7 @@ public class Excursion {
     private Date last_update;
 
     @Column(name = "vacation_id")
-    @JsonProperty("vacationId")
+    //@JsonProperty("vacationId")
     private Long vacationId;
 
     @ManyToOne(fetch = FetchType.LAZY)
