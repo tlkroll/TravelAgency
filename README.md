@@ -1,7 +1,7 @@
 <h1>Travel Agency</h1>
 
 <h2>Description</h2>
-This is a website for a fictional travel agency created using a Spring application with an Angular front end, Java back end, and a MySQL database for storing company and customer information.
+This is an application for a fictional travel agency created using a Spring framework with an Angular front end, Java back end, and a MySQL database for storing company and customer information.
 <br>
 
 
