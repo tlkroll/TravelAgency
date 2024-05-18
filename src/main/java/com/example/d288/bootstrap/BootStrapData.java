@@ -22,7 +22,7 @@ public class BootStrapData implements CommandLineRunner {
             Customer tom = new Customer();
             tom.setFirstName("Thomas");
             tom.setLastName("Kroll");
-            tom.setPhone("518-416-9535");
+            tom.setPhone("518-555-1111");
             tom.setAddress("149 Madeup Street");
             tom.setDivision(divisionRepository.findAll().get(5));
             tom.setPostal_code("12198");
@@ -31,7 +31,7 @@ public class BootStrapData implements CommandLineRunner {
             Customer kristine = new Customer();
             kristine.setFirstName("Kristine");
             kristine.setLastName("Kroll");
-            kristine.setPhone("518-416-9536");
+            kristine.setPhone("518-555-2222");
             kristine.setAddress("149 Madeup Street");
             kristine.setDivision(divisionRepository.findAll().get(5));
             kristine.setPostal_code("12198");
@@ -40,7 +40,7 @@ public class BootStrapData implements CommandLineRunner {
             Customer everett = new Customer();
             everett.setFirstName("Everett");
             everett.setLastName("Kroll");
-            everett.setPhone("518-416-3536");
+            everett.setPhone("518-555-3333");
             everett.setAddress("149 Madeup Street");
             everett.setDivision(divisionRepository.findAll().get(5));
             everett.setPostal_code("12198");
