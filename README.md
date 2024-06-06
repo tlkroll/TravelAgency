@@ -17,6 +17,7 @@ This is an application for a fictional travel agency created using a Spring fram
 
 - <b>Full Stack Development</b>
 - <b>Database Management</b>
+- <b>REST API</b>
 
 <h2>Requirements followed for this project</h2>
 
